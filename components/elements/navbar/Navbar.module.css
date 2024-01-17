@@ -1,0 +1,131 @@
+#classicNavbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    box-shadow: 0px 0px 8px 0px #727272;
+    padding-Top: 20px;
+    padding-Bottom: 15px;
+    padding-Left: 120px;
+    background-Color: #fff;
+}
+
+#logoItem{
+    padding-top: 5px;
+}
+
+#logo{
+    margin-left: -20px;
+    font-size: 50px;
+    margin-top: -15px;
+}
+
+#innerFrame {
+    justify-items: end;
+    margin-top: 0px;
+    gap: 20px;
+}
+
+#mobileFrame {
+    display: none;
+}
+
+#h1 {
+    font-size: 50px;
+}
+
+#button {
+    font-size: 20px;
+    border: 0px solid;
+    color: #000;
+    margin-top: 0px;
+    background-color: #fff;
+}
+
+:hover#button{
+    color: #000;
+    border-bottom: 1px solid #000;
+    background-color: #f4f4f4;
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+
+    #classicNavbar {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        box-shadow: 0px 0px 8px 0px #727272;
+        padding-left: 0px;
+        padding-right: 20px;
+        background-Color: #f4f4f4;
+        padding-top: 0px;
+    }
+
+    #logo{
+        font-size: 30px;
+        margin-top: -25px;
+    }
+
+    .logoImg{
+        margin-top: -20px;
+        width: 30px;
+        height: 30px;
+    }
+
+    #logoFrame{
+        margin-left: 30px;
+        display: flex;
+    }
+
+    #frame {
+        display: flex;
+    }
+
+    #innerFrame {
+        display: none;
+    }
+    
+    #mobileFrame{
+        display: flex;
+        margin-top: 0px;
+    }
+
+    #innerMobileFrame{
+        padding-bottom: 0px;
+    }
+
+    #button {
+        font-size: 20px;
+        border: 0px solid;
+        color: #000;
+        margin-top: 0px;
+        background-color: #fff;
+    }
+    
+    :hover#button{
+        color: #000;
+        border-bottom: 1px solid #000;
+        background-color: #f4f4f4;
+    }
+
+    #buttonInnerMobileFrame{
+        width: 100%;
+        margin-top: 0px;
+        margin-left: 15px;
+        margin-bottom: 20px;
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+
+    #h1 {
+        margin-left: -80px;
+    }
+
+    #logoFrame{
+        margin-left: -7 0px;
+        display: flex;
+    }
+
+}

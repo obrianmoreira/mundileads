@@ -1,0 +1,17 @@
+#wall{
+    padding-top: 20px;
+}
+
+#table {
+    margin-top: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+}
+
+.collum {
+    background-color: #c4c2c2;
+    padding: 20px;
+    text-align: left;
+}

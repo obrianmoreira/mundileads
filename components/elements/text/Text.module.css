@@ -1,0 +1,54 @@
+.h1 {
+    font-size: 60px;
+    font-weight: 600;
+    margin: 0px 0px 10px 0px;    
+}
+
+.h2 {
+
+    font-size: 45px;
+    font-weight: 600;
+    margin: 0px 0px 20px 0px;
+
+}
+
+.h3{
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.h4{
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.h5 {
+    font-size: 16px;
+}
+
+.parag{
+    font-size: 18px;
+    font-weight: 220;
+    margin: 15px 0px 0px 0px;
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 576px) {
+    .h1{
+        font-size: 30px;
+    }
+
+    .h2{
+        font-size: 30px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+    .h1{
+        font-size: 40px;
+    }
+
+    .h2{
+        font-size: 30px;
+    }
+}
