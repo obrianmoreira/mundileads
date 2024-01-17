@@ -11,7 +11,7 @@ const MundiLead = () => {
 
     const getNewMundiUser = useCallback(async () => {
         try {
-            const res = await fetch('http://localhost:3000/api/mundi', {
+            const res = await fetch('/api/mundi', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'

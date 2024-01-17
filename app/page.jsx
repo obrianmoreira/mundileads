@@ -16,7 +16,7 @@ export default function Home() {
 
   async function postNewMundiUser(name, userName, phone, birth){
     try {
-        const res = await fetch('http://localhost:3000/api/mundi', {
+        const res = await fetch('/api/mundi', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
