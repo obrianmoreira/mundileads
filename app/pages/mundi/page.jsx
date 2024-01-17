@@ -8,8 +8,11 @@ const MundiLead = () => {
 
     const [mundiLead, setMundiLead] = useState([]);
 
+    useEffect(() => {
+        getNewMundiUser();
+    },[])
 
-    const getNewMundiUser = useCallback(async () => {
+    async function getNewMundiUser() {
         try {
             const res = await fetch('/api/mundi', {
                 method: 'GET',
@@ -22,13 +25,8 @@ const MundiLead = () => {
             //getTasks();
             } catch (error) {
                 console.log(error)
-            }
-        },[]  
-    ) 
-    
-    useEffect(() => {
-        getNewMundiUser();
-    },[getNewMundiUser])
+        }
+    } ;
 
     return (
         <>

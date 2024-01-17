@@ -13,7 +13,7 @@ export default function Home() {
   const [userName, setUsername] = useState('');
   const [phone, setPhone] = useState('');
   const [birth, setBirth] = useState('');
-
+  
   async function postNewMundiUser(name, userName, phone, birth){
     try {
         const res = await fetch('/api/mundi', {
@@ -32,7 +32,7 @@ export default function Home() {
         });
         const data = await res.json();
         console.log('deu certo');
-        alert('Vc se cadastrou corretamente!')
+        alert('Vc se cadastrou corretamente!');
     } catch(error) {
         console.log('Error')
     }
