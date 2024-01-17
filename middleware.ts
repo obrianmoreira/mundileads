@@ -5,7 +5,7 @@ export async function middleware(request) {
     console.log(origin);
 
     const response = NextResponse.next();
-    response.headers.set('Acess-Control-Allow-Origin', /^https:\/\/(www.\.)?(yourdomain\.com)$/i.test(origin) ? origin : '');
+    response.headers.set('Acess-Control-Allow-Origin', '*');
     response.headers.set('Acess-Control-Allow-Methods', 'GET, POST, PUST, DELETE, OPTIONS');
     response.headers.set('Acess-Control-Allow-Headers', 'Content-Type, Authorization');
     response.headers.set('Acess-Control-Max-Age', '86400');
