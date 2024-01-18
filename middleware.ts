@@ -6,10 +6,10 @@ export async function middleware(request: NextRequest) {
     console.log(origin);
 
     const response = NextResponse.next();
-    response.headers.set('Acess-Control-Allow-Origin', '*');
-    response.headers.set('Acess-Control-Allow-Methods', 'GET, POST, PUST, DELETE, OPTIONS');
-    response.headers.set('Acess-Control-Allow-Headers', 'Content-Type, Authorization');
-    response.headers.set('Acess-Control-Max-Age', '86400');
+    response.headers.set('Access-Control-Allow-Origin', '*');
+    response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUST, DELETE, OPTIONS');
+    response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    response.headers.set('Access-Control-Max-Age', '86400');
 
     console.log('Middleware');
     console.log(request.method);
