@@ -20,5 +20,10 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: '/api/:path*'
+  api: {
+    bodyParser: false, // Disable Next.js default body parsing
+    externalResolver: true, // Enable custom server framework (if applicable)
+    // Specify the middleware for your route
+    middleware: [middleware],
+  },
 };
