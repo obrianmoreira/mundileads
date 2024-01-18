@@ -1,4 +1,3 @@
-import { Response } from 'next';
 import { CreateMundiLead } from "@/components/crud/create";
 import { ReadMundiLead } from "@/components/crud/read";
 
@@ -14,11 +13,6 @@ export async function POST(request) {
 }
 
 export async function GET(request) {
-  const origin = request.headers.get('origin');
-  const mundiLead = await ReadMundiLead();
-  const headers = {
-    'Access-Control-Allow-Origin': origin || '*',
-    'Content-type': 'application/json',
-  };
-  return new Response(JSON.stringify(mundiLead), { headers });
+  const mundiLead = await ReadMundiLead();    
+  return Response.json(mundiLead);
 }
