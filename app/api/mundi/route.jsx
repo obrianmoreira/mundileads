@@ -1,5 +1,6 @@
 import { CreateMundiLead } from "@/components/crud/create";
 import { ReadMundiLead } from "@/components/crud/read";
+import { NextResponse } from "next/server";
 
 export async function POST(request) {
     const data = await request.json();
@@ -9,10 +10,10 @@ export async function POST(request) {
     const phone = leads.phone;
     const birth = leads.birth;
     CreateMundiLead(name, userName, phone, birth);
-    return Response.json('POST DEU CERTO, CARALHO!')
+    return NextResponse.json('POST DEU CERTO, CARALHO!')
 }
 
 export async function GET(request) {
   const mundiLead = await ReadMundiLead();    
-  return Response.json(mundiLead);
+  return NextResponse.json(mundiLead);
 }
