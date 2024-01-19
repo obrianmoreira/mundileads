@@ -6,8 +6,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Button } from '@/components/elements/button/button';
 import logoMundi from '../public/mundi.png';
-const cors = require('cors')({origin: true});
-app.use(cors);
+
 export default function Home() {
   const [name, setName] = useState('');
   const [userName, setUsername] = useState('');
