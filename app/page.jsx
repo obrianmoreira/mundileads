@@ -8,8 +8,7 @@ import { Button } from '@/components/elements/button/button';
 import logoMundi from '../public/mundi.png';
 
 export default function Home() {
-
-  const cors = require('cors')({origin: true});
+const cors = require('cors')({origin: true});
 app.use(cors);
   const [name, setName] = useState('');
   const [userName, setUsername] = useState('');
