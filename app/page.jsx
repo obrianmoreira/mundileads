@@ -8,7 +8,6 @@ import { Button } from '@/components/elements/button/button';
 import logoMundi from '../public/mundi.png';
 
 export default function Home() {
-  
   const [name, setName] = useState('');
   const [userName, setUsername] = useState('');
   const [phone, setPhone] = useState('');

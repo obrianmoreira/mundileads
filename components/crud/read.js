@@ -4,7 +4,7 @@ import { database } from "./database";
 export async function ReadMundiLead() {
 
     try {
-        const dbInstance = collection(database, 'MundiLead');
+        const dbInstance = collection(database, 'mundi-leads');
         const queryData = await getDocs(dbInstance);
         const queryArray = [];
         queryData.forEach((doc) => {
