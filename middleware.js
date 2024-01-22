@@ -16,8 +16,4 @@ export function middleware(request) {
 
 export const config = {
     matcher: '/api/:path*'
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 061ae7c1316c0a18a942a87d97fafaf811ded467
