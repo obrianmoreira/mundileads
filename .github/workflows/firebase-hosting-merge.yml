@@ -18,6 +18,5 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MUNDILEADS }}'
           channelId: live
           projectId: mundileads
-          FIREBASE_CLI_EXPERIMENTS: webframeworks
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          firebaseCliExperiments: webframeworks
           
