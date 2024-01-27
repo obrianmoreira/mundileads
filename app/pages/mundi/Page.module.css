@@ -12,6 +12,16 @@
 
 .collum {
     background-color: #c4c2c2;
+    width: 100%;
     padding: 20px;
     text-align: left;
+}
+
+.leadCell{
+    background-color: #Ffff;
+    width: 100%;
+}
+
+#tableStyle{
+    width: 100%;
 }
