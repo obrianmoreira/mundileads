@@ -2,6 +2,7 @@ import { CreateMundiLead } from "@/components/crud/create";
 import DeleteLeads from "@/components/crud/delete";
 import DeleteTasks from "@/components/crud/delete";
 import { ReadMundiLead } from "@/components/crud/read";
+import { UpdateMundiLead } from "@/components/crud/update";
 import { NextResponse } from "next/server";
 
 
@@ -35,8 +36,26 @@ export async function DELETE(request){
         const data = await request.json();
         const {mundiLeadsId} = data;
         DeleteLeads(mundiLeadsId);
+        return Response.json('Deleted correctly');
     } catch(error) {
         console.log(error);
         return Response.json({error: error});
+    }
+}
+
+export async function PUT(request) {
+    try {
+        const data = await request.json();
+        const {leads} = data;
+        const leadId = leads.leadId;
+        const newName = leads.newName;
+        const newUsername = leads.newUsername;
+        const newPhone = leads.newPhone;
+        const newBirth = leads.newBirth;
+        UpdateMundiLead(leadId, newName, newUsername, newPhone, newBirth);
+        return Response.json('Updated correctly');
+    } catch(error) {
+        console.log(error);
+        return Response.json({error: error})
     }
 }

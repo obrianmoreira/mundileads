@@ -9,6 +9,7 @@ import { MdRadioButtonUnchecked } from "react-icons/md";
 import { MdRadioButtonChecked } from "react-icons/md";
 import { Button } from "@/components/elements/button/button";
 import { CiEdit } from "react-icons/ci";
+import Field from "@/components/elements/form/field/field";
 
 const MundiLead = () => {
 
@@ -17,6 +18,12 @@ const MundiLead = () => {
     const [selectAll, setSelectAll] = useState(false);
     const [checked, setChecked] = useState([]);
     const [allIds, setAllIds] = useState([]);
+    const [openEdit, setOpenEdit] = useState(false);
+    const [leadId, setLeadId] = useState([]);
+    const [newName, setNewName] = useState('');
+    const [newUsername, setNewUsername] = useState('');
+    const [newPhone, setNewPhone] = useState('');
+    const [newBirth, setNewBirth] = useState('');
 
     const getNewMundiLead = useCallback( async () => {
         try {
@@ -50,8 +57,26 @@ const MundiLead = () => {
                     mundiLeadsId,
                 })
             })
+            alert('Vc deletou com sucesso, espere mostar na tela!');
         } catch (error) {
             console.log(error);
+        }
+    }
+
+    async function editMundiLead(leadId, newName, newUsername, newPhone, newBirth) {
+        try {
+            const res = await fetch('/api/mundi', {
+                method: 'PUT',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify({
+                    leads:{leadId, newName, newUsername, newPhone, newBirth}
+                })
+            })
+            alert('Vc Atualizou com sucesso, espere mostar na tela!');
+        } catch (error) {
+            console.log(error)
         }
     }
 
@@ -74,6 +99,16 @@ const MundiLead = () => {
 
     const handleDeleteMundiLeads = (mundiLeadsId) => {
         deleteMundiLead(mundiLeadsId);
+    }
+
+    const handleOpenEdit = (leadId) => {
+        setOpenEdit(!openEdit);
+        setLeadId(leadId);
+        console.log(leadId);
+    }
+
+    const handleEdit = () => {
+        editMundiLead(leadId, newName, newUsername, newPhone, newBirth);
     }
 
     return (
@@ -109,7 +144,7 @@ const MundiLead = () => {
                                                     {openMenu
                                                         ? (<><td>{checked.includes(lead.id) ? (<>
                                                             {<MdRadioButtonChecked size={25} onClick={() => handleSelection(lead.id)} className={Style.iconItem}/>}</>)  : (<><MdRadioButtonUnchecked size={25} onClick={() => handleSelection(lead.id)} className={Style.iconItem}/></>)}
-                                                            <CiEdit size={25}/>
+                                                            <CiEdit onClick={() => handleOpenEdit(lead.id)} size={25}/>
                                                         </td></>):(<></>)
                                                     }
                                                     
@@ -121,7 +156,16 @@ const MundiLead = () => {
                                 
                             </tbody>
                     </table>
-                </Frame>     
+                </Frame>
+                {openEdit ? (<>
+                    <Frame>
+                        <Field type="text" label="Novo Nome" placeholder="Joao" onChange={(e) => setNewName(e.target.value)}/>
+                        <Field type="text" label="Novo Apelido" placeholder="Moreira" onChange={(e) => setNewUsername(e.target.value)}/>
+                        <Field type="text" label="Novo telemovel" placeholder="(+351) 0000-0000" onChange={(e) => setNewPhone(e.target.value)}/>
+                        <Field type="text" label="Nova data de nascimento" placeholder="14/03/1996" onChange={(e) => setNewBirth(e.target.value)}/>
+                        <Button buttonText="Cadastrar" style={Style.button} buttonClick={handleEdit}/> 
+                    </Frame>   
+                </>) : (<></>)}  
             </Wall>
         
         </>
