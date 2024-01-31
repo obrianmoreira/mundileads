@@ -10,6 +10,7 @@ import { MdRadioButtonChecked } from "react-icons/md";
 import { Button } from "@/components/elements/button/button";
 import { CiEdit } from "react-icons/ci";
 import Field from "@/components/elements/form/field/field";
+import { Oldenburg } from "next/font/google";
 
 const MundiLead = () => {
 
@@ -20,10 +21,14 @@ const MundiLead = () => {
     const [allIds, setAllIds] = useState([]);
     const [openEdit, setOpenEdit] = useState(false);
     const [leadId, setLeadId] = useState([]);
-    const [newName, setNewName] = useState('');
-    const [newUsername, setNewUsername] = useState('');
-    const [newPhone, setNewPhone] = useState('');
-    const [newBirth, setNewBirth] = useState('');
+    const [olderName, setOlderName] = useState('');
+    const [olderUsername, setOlderUsername] = useState('');
+    const [olderPhone, setOlderPhone] = useState('');
+    const [olderBirth, setOlderBirth] = useState('');
+    const [newName, setNewName] = useState(olderName);
+    const [newUsername, setNewUsername] = useState(olderUsername);
+    const [newPhone, setNewPhone] = useState(olderPhone);
+    const [newBirth, setNewBirth] = useState(olderBirth);
 
     const getNewMundiLead = useCallback( async () => {
         try {
@@ -58,6 +63,9 @@ const MundiLead = () => {
                 })
             })
             alert('Vc deletou com sucesso, espere mostar na tela!');
+            if(alert()){
+                setOpenEdit(!openEdit);
+            }
         } catch (error) {
             console.log(error);
         }
@@ -71,7 +79,13 @@ const MundiLead = () => {
                     'Content-type': 'application/json',
                 },
                 body: JSON.stringify({
-                    leads:{leadId, newName, newUsername, newPhone, newBirth}
+                    lead: {
+                        leadId,
+                        newName,
+                        newUsername,
+                        newPhone,
+                        newBirth
+                    }
                 })
             })
             alert('Vc Atualizou com sucesso, espere mostar na tela!');
@@ -101,14 +115,17 @@ const MundiLead = () => {
         deleteMundiLead(mundiLeadsId);
     }
 
-    const handleOpenEdit = (leadId) => {
+    const handleOpenEdit = (leadId, leadName, leadUsername, leadPhone, leadBirth) => {
         setOpenEdit(!openEdit);
         setLeadId(leadId);
-        console.log(leadId);
+        setNewName(leadName);
+        setNewUsername(leadUsername);
+        setNewPhone(leadPhone);
+        setNewBirth(leadBirth);
     }
 
-    const handleEdit = () => {
-        editMundiLead(leadId, newName, newUsername, newPhone, newBirth);
+    async function handleEdit() {
+        await editMundiLead(leadId, newName, newUsername, newPhone, newBirth);
     }
 
     return (
@@ -144,7 +161,7 @@ const MundiLead = () => {
                                                     {openMenu
                                                         ? (<><td>{checked.includes(lead.id) ? (<>
                                                             {<MdRadioButtonChecked size={25} onClick={() => handleSelection(lead.id)} className={Style.iconItem}/>}</>)  : (<><MdRadioButtonUnchecked size={25} onClick={() => handleSelection(lead.id)} className={Style.iconItem}/></>)}
-                                                            <CiEdit onClick={() => handleOpenEdit(lead.id)} size={25}/>
+                                                            <CiEdit onClick={() => handleOpenEdit(lead.id, lead.name, lead.userName, lead.phone, lead.birth)} size={25}/>
                                                         </td></>):(<></>)
                                                     }
                                                     
@@ -153,16 +170,16 @@ const MundiLead = () => {
                                         </>
                                     )
                                 })}
-                                
+                            
                             </tbody>
                     </table>
                 </Frame>
                 {openEdit ? (<>
                     <Frame>
-                        <Field type="text" label="Novo Nome" placeholder="Joao" onChange={(e) => setNewName(e.target.value)}/>
-                        <Field type="text" label="Novo Apelido" placeholder="Moreira" onChange={(e) => setNewUsername(e.target.value)}/>
-                        <Field type="text" label="Novo telemovel" placeholder="(+351) 0000-0000" onChange={(e) => setNewPhone(e.target.value)}/>
-                        <Field type="text" label="Nova data de nascimento" placeholder="14/03/1996" onChange={(e) => setNewBirth(e.target.value)}/>
+                        <Field type="text" label="Novo Nome" placeholder={olderName} value={newName} onChange={(e) => setNewName(e.target.value)}/>
+                        <Field type="text" label="Novo Apelido" placeholder={olderUsername} value={newUsername} onChange={(e) => setNewUsername(e.target.value)}/>
+                        <Field type="text" label="Novo telemovel" placeholder={olderPhone} value={newPhone} onChange={(e) => setNewPhone(e.target.value)}/>
+                        <Field type="text" label="Nova data de nascimento" placeholder={olderBirth} value={newBirth} onChange={(e) => setNewBirth(e.target.value)}/>
                         <Button buttonText="Cadastrar" style={Style.button} buttonClick={handleEdit}/> 
                     </Frame>   
                 </>) : (<></>)}  

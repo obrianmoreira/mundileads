@@ -46,13 +46,13 @@ export async function DELETE(request){
 export async function PUT(request) {
     try {
         const data = await request.json();
-        const {leads} = data;
-        const leadId = leads.leadId;
-        const newName = leads.newName;
-        const newUsername = leads.newUsername;
-        const newPhone = leads.newPhone;
-        const newBirth = leads.newBirth;
-        UpdateMundiLead(leadId, newName, newUsername, newPhone, newBirth);
+        const {lead} = data;
+        const leadId = lead.leadId;
+        const newName = lead.newName;
+        const newUsername = lead.newUsername;
+        const newPhone = lead.newPhone;
+        const newBirth = lead.newBirth;
+        UpdateMundiLead(leadId, newName, newUsername, newPhone, newBirth)
         return Response.json('Updated correctly');
     } catch(error) {
         console.log(error);

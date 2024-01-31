@@ -3,7 +3,7 @@ import { database } from "./database";
 
 export async function UpdateMundiLead(leadId, newName, newUsername, newPhone, newBirth) {
     const docRef = doc(database, 'mundi-leads', leadId);
-
+    
     try {
         await updateDoc(docRef, {
             name: newName,
