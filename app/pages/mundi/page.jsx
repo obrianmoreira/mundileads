@@ -11,6 +11,7 @@ import { Button } from "@/components/elements/button/button";
 import { CiEdit } from "react-icons/ci";
 import Field from "@/components/elements/form/field/field";
 import { Oldenburg } from "next/font/google";
+import { H1 } from "@/components/elements/text/text";
 
 const MundiLead = () => {
 
@@ -132,11 +133,11 @@ const MundiLead = () => {
         <>
         
             <Wall>
-                <h1>Mundi Food Cadastros Para Brenda</h1>
+                <H1 text="Tabela de Controle de Novos Leads"/>
                 <br />
-                <Frame>
+                <Frame style={Style.frame}>
                     <table id={Style.table}>
-                        <thead>
+                        <thead id={Style.tHead}>
                             <tr>  
                                 <th className={Style.collum}><p>Nome</p></th>
                                 <th className={Style.collum}><p>Apelido</p></th>
@@ -149,7 +150,7 @@ const MundiLead = () => {
                                 </>) : (<></>)}
                             </tr>
                         </thead>
-                            <tbody>
+                            <tbody id={Style.tBody}>
                                 {mundiLead.map((lead) => {
                                     return (
                                         <> 

@@ -1,10 +1,67 @@
 #wall{
-  background-color: #e3f2e1;
+  background-color: #f2fcf0;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+#logoItem{
+  margin-top: 20px;
+}
+
+#instagramButton{
+  color: #fff;
+  width: 30%;
+  padding: 20px;
+  border-radius: 20px;
+  background-image: url('../public/instabackground.jpg');
+  margin-top: 20px;
+  margin-left: 30px;
+  gap: 10px;
+}
+
+:hover#instagramButton{
+  box-shadow: 5px 5px 5px #bababa;
+}
+
+#facebookButton{
+  color: #fff;
+  width: 30%;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #0861f2;
+  margin-top: 20px;
+  margin-left: 30px;
+  gap: 10px;
+}
+
+:hover#facebookButton{
+  box-shadow: 5px 5px 5px #bababa;
+}
+
+#formItem{
+  background-color: #ffffffcc;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 5px 5px 10px #d6d5d5;
+}
+
+.logoImage{
+  width: 400px;
+}
+
+.iconText{
+  font-size: 20px;
+}
+
+#h1Style{
+  color: #416630;
 }
 
 #button{
   color: #fff;
   background-color: #4a7138;
+  margin-top: 6px;
+  margin-bottom: 0px;
 }
 
 #table {
@@ -19,4 +76,47 @@
   background-color: #c4c2c2;
   padding: 20px;
   text-align: left;
+}
+
+#formParag {
+  margin-bottom: 10px;
+}
+
+#dataSecurityParag{
+  font-size: 16px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+  #wall{
+    padding-top: 10px;
+    padding-bottom: 60px;
+  }
+  #frame {
+    display: block;
+  }
+  .logoImage{
+    width: 250px;
+    height: 200px;
+  }
+
+  #instagramButton{
+    display: none;
+  }
+  
+  #facebookButton{
+    display: none;
+  }
+}
+
+
+
+@media only screen and (min-width: 993px) and (max-width: 1440px) {
+
+  #facebookButton{
+    width: 40%;
+  }
+  #instagramButton{
+    width: 40%;
+  }
+
 }
