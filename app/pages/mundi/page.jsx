@@ -142,6 +142,8 @@ const MundiLead = () => {
                                 <th className={Style.collum}><p>Apelido</p></th>
                                 <th className={Style.collum}><p>Telemovel</p></th>
                                 <th className={Style.collum}><p>Nascimento</p></th>
+                                <th className={Style.collum}><p>Clique no Instagram</p></th>
+                                <th className={Style.collum}><p>Clique no Facebook</p></th>
                                 <th className={Style.collum}>
                                     <Frame style={Style.frameTools}>
                                         <HiOutlineAdjustmentsHorizontal size={30} onClick={(e) => setOpenMenu(!openMenu)}/>
@@ -162,6 +164,8 @@ const MundiLead = () => {
                                                     <Table style={Style.tableStyle} cell={lead.userName}/>
                                                     <Table style={Style.tableStyle} cell={lead.phone}/>
                                                     <Table style={Style.tableStyle} cell={lead.birth}/>
+                                                    <Table style={Style.tableStyle} cell={lead.instaTracker}/>
+                                                    <Table style={Style.tableStyle} cell={lead.faceTracker}/>
                                                     {openMenu
                                                         ? (<><td id={Style.frameIcons}>{checked.includes(lead.id) ? (<>
                                                             {<MdRadioButtonChecked size={25} onClick={() => handleSelection(lead.id)} className={Style.iconItem}/>}</>)  : (<><MdRadioButtonUnchecked size={25} onClick={() => handleSelection(lead.id)} className={Style.iconItem}/></>)}

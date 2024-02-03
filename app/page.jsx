@@ -16,8 +16,10 @@ export default function Home() {
   const [userName, setUsername] = useState('');
   const [phone, setPhone] = useState('');
   const [birth, setBirth] = useState('');
-  
-  async function postNewMundiUser(name, userName, phone, birth){
+  const [instaTracker, setInstaTracker] = useState(0);
+  const [faceTracker, setFaceTracker] = useState(0);
+
+  async function postNewMundiUser(name, userName, phone, birth, instaTracker, faceTracker){
     try {
         const res = await fetch('/api/mundi', {
             method: 'POST',
@@ -30,6 +32,8 @@ export default function Home() {
                     userName,
                     phone,
                     birth,
+                    instaTracker,
+                    faceTracker,
                 }
             })
         });
@@ -45,7 +49,7 @@ export default function Home() {
         if(name == '' || userName == ''|| phone == '') {
             alert('O nome, apelido e telefone precisam ser preenchidos')
         } else {
-            await postNewMundiUser(name, userName, phone, birth);
+            await postNewMundiUser(name, userName, phone, birth, instaTracker, faceTracker);
             location.reload();
         }
   }
@@ -57,14 +61,13 @@ export default function Home() {
           <Frame style={Style.frame}>
                 <Item style={Style.logoItem}>
                     <div><Image src={logoMundi} className={Style.logoImage} alt='logo mundi'/></div>
-                    <a href="https://www.instagram.com/mundioficial/"> 
+                    <a onClick={() => setInstaTracker(instaTracker + 1)} href='https://www.instagram.com/mundi.cafe?next=%2F&hl=en' target='_blank'> 
                         <Frame style={Style.instagramButton}>
                                 <div><FaInstagram size={25}/></div>
                                 <p className={Style.iconText}>Instagram</p>
-                            
                         </Frame>
                     </a>
-                    <a href="https://www.facebook.com/mundifoodcafe/">
+                    <a onClick={() => setFaceTracker(faceTracker + 1)} href='https://www.facebook.com/mundifoodcafe/' target='_blank'> 
                         <Frame style={Style.facebookButton}>
                                 <div><FaFacebookSquare size={25}/></div>
                                 <p className={Style.iconText}>Facebook</p>
@@ -83,14 +86,14 @@ export default function Home() {
                     <Parag style={Style.dataSecurityParag} text="Não se preocupe. Seus dados não serão compartilhados com ninguém"/>
                 </Item>
                 <Item style={Style.socialMediaItem}>
-                    <a href="https://www.instagram.com/mundioficial/">
+                    <a onClick={() => setInstaTracker(instaTracker + 1)} href='https://www.instagram.com/mundi.cafe?next=%2F&hl=en' target='_blank'> 
                         <Frame style={Style.instaButton}>
                             <FaInstagram size={25}/>
                             <p className={Style.socialMediaItemText}>Instagram</p>
                         </Frame>
                     </a>
 
-                    <a href="https://www.facebook.com/mundifoodcafe/">
+                    <a onClick={() => setFaceTracker(faceTracker + 1)} href='https://www.facebook.com/mundifoodcafe/' target='_blank'> 
                         <Frame style={Style.faceButton}>
                             <div><FaFacebookSquare size={25}/></div>
                             <p className={Style.socialMediaItemText}>Facebook</p>
