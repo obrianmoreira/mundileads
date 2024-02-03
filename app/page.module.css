@@ -1,7 +1,7 @@
 #wall{
   background-color: #f2fcf0;
-  padding-top: 70px;
-  padding-bottom: 70px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 #logoItem{
@@ -55,6 +55,10 @@
 
 #h1Style{
   color: #416630;
+}
+
+#frame {
+  background-origin: red;
 }
 
 #button{
@@ -154,8 +158,6 @@
   }
 
 }
-
-
 
 @media only screen and (min-width: 993px) and (max-width: 1440px) {
   

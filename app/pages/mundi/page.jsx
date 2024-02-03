@@ -7,10 +7,11 @@ import Style from './Page.module.css';
 import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2";
 import { MdRadioButtonUnchecked } from "react-icons/md";
 import { MdRadioButtonChecked } from "react-icons/md";
+import { VscChecklist } from "react-icons/vsc";
+import { FaTrashAlt } from "react-icons/fa";
 import { Button } from "@/components/elements/button/button";
 import { CiEdit } from "react-icons/ci";
 import Field from "@/components/elements/form/field/field";
-import { Oldenburg } from "next/font/google";
 import { H1 } from "@/components/elements/text/text";
 
 const MundiLead = () => {
@@ -64,9 +65,7 @@ const MundiLead = () => {
                 })
             })
             alert('Vc deletou com sucesso, espere mostar na tela!');
-            if(alert()){
-                setOpenEdit(!openEdit);
-            }
+            setOpenEdit(!openEdit);
         } catch (error) {
             console.log(error);
         }
@@ -136,18 +135,22 @@ const MundiLead = () => {
                 <H1 text="Tabela de Controle de Novos Leads"/>
                 <br />
                 <Frame style={Style.frame}>
-                    <table id={Style.table}>
+                <table id={Style.table}>
                         <thead id={Style.tHead}>
                             <tr>  
                                 <th className={Style.collum}><p>Nome</p></th>
                                 <th className={Style.collum}><p>Apelido</p></th>
                                 <th className={Style.collum}><p>Telemovel</p></th>
                                 <th className={Style.collum}><p>Nascimento</p></th>
-                                <th className={Style.collum}><HiOutlineAdjustmentsHorizontal size={30} onClick={(e) => setOpenMenu(!openMenu)}/></th>     
-                                {openMenu ? (<>
-                                    <button id={Style.deleteButton} onClick={() => handleDeleteMundiLeads(checked)}>Deletar</button>
-                                    <button id={Style.deleteButton} onClick={handleSelectAll}>Select All</button> 
-                                </>) : (<></>)}
+                                <th className={Style.collum}>
+                                    <Frame style={Style.frameTools}>
+                                        <HiOutlineAdjustmentsHorizontal size={30} onClick={(e) => setOpenMenu(!openMenu)}/>
+                                        {openMenu ? (<>
+                                            <FaTrashAlt size={30} onClick={() => handleDeleteMundiLeads(checked)}/>
+                                            <VscChecklist size={30} onClick={handleSelectAll}/>
+                                        </>) : (<></>)}
+                                    </Frame>
+                                </th> 
                             </tr>
                         </thead>
                             <tbody id={Style.tBody}>
@@ -160,7 +163,7 @@ const MundiLead = () => {
                                                     <Table style={Style.tableStyle} cell={lead.phone}/>
                                                     <Table style={Style.tableStyle} cell={lead.birth}/>
                                                     {openMenu
-                                                        ? (<><td>{checked.includes(lead.id) ? (<>
+                                                        ? (<><td id={Style.frameIcons}>{checked.includes(lead.id) ? (<>
                                                             {<MdRadioButtonChecked size={25} onClick={() => handleSelection(lead.id)} className={Style.iconItem}/>}</>)  : (<><MdRadioButtonUnchecked size={25} onClick={() => handleSelection(lead.id)} className={Style.iconItem}/></>)}
                                                             <CiEdit onClick={() => handleOpenEdit(lead.id, lead.name, lead.userName, lead.phone, lead.birth)} size={25}/>
                                                         </td></>):(<></>)
@@ -174,6 +177,7 @@ const MundiLead = () => {
                             
                             </tbody>
                     </table>
+                    
                 </Frame>
                 {openEdit ? (<>
                     <Frame>
