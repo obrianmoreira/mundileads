@@ -9,7 +9,7 @@ import logoMundi from '../public/mundi.png';
 import { H1, H3, H5, Parag } from '@/components/elements/text/text';
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const [name, setName] = useState('');
@@ -18,6 +18,7 @@ export default function Home() {
   const [birth, setBirth] = useState('');
   const [instaTracker, setInstaTracker] = useState(0);
   const [faceTracker, setFaceTracker] = useState(0);
+  const router = useRouter();
 
   async function postNewMundiUser(name, userName, phone, birth, instaTracker, faceTracker){
     try {
@@ -41,7 +42,7 @@ export default function Home() {
         console.log('deu certo');
         alert('Vc se cadastrou corretamente!');
     } catch(error) {
-        console.log('Error')
+        console.log('Error');
     }
   }
 
@@ -50,7 +51,7 @@ export default function Home() {
             alert('O nome, apelido e telefone precisam ser preenchidos')
         } else {
             await postNewMundiUser(name, userName, phone, birth, instaTracker, faceTracker);
-            location.reload();
+            router.push('/pages/mundi');
         }
   }
 

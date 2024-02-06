@@ -132,7 +132,7 @@ const MundiLead = () => {
         <>
         
             <Wall>
-                <H1 text="Tabela de Controle de Novos Leads"/>
+                <H1 text="Tabela de Controle de Novos Leads" />
                 <br />
                 <Frame style={Style.frame}>
                 <table id={Style.table}>

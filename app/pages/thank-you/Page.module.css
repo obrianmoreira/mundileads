@@ -1,0 +1,82 @@
+#wall {
+    text-align: center;
+    height: max-content;
+    padding-top: 129px;
+    padding-bottom: 129px;
+    background-color: #f2fcf0;
+}
+
+#parag{
+    font-size: 22px;
+}
+
+.logoImage{
+  width: 350px;
+  height: 250px;
+}
+
+#socialMediaItem{
+    justify-content: center;
+    width: 100%;
+    gap: 50px;
+}
+
+#instagramButton{
+    color: #fff;
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    padding-bottom: 15px;
+    border-radius: 20px;
+    background-image: url('/instabackground.jpg');
+    gap: 10px;
+  }
+  
+
+  :hover#instagramButton{
+    box-shadow: 5px 5px 5px #bababa;
+  }
+  
+  #facebookButton{
+    color: #fff;
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    padding-bottom: 15px;
+    border-radius: 20px;
+    background-color: #0861f2;
+    gap: 10px;
+  }
+  
+  :hover#facebookButton{
+    box-shadow: 5px 5px 5px #bababa;
+  }
+
+  
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+  
+  #wall {
+    text-align: center;
+    height: max-content;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #f2fcf0;
+}
+
+  #parag{
+      font-size: 22px;
+  }
+
+  .logoImage{
+    width: 250px;
+    height: 200px;
+  }
+
+  #socialMediaItem{
+      justify-content: center;
+      width: 100%;
+      gap: 50px;
+  }
+
+}
