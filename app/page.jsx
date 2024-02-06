@@ -51,7 +51,7 @@ export default function Home() {
             alert('O nome, apelido e telefone precisam ser preenchidos')
         } else {
             await postNewMundiUser(name, userName, phone, birth, instaTracker, faceTracker);
-            router.push('/pages/mundi');
+            router.push('/pages/thank-you');
         }
   }
 
